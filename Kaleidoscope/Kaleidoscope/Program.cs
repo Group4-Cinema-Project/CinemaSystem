@@ -19,7 +19,7 @@ namespace Kaleidoscope
         Console.WriteLine("ERROR: " + e.Message);
       }
 
-      drawScreen();
+      drawStartScreen();
       askUserInput();
     }
 
@@ -35,12 +35,18 @@ namespace Kaleidoscope
       {
         case 1:
           Console.WriteLine("Case 1");
+          Console.Clear();
+          drawOptionScreen(switchCase);
           break;
         case 2:
           Console.WriteLine("Case 2");
+          Console.Clear();
+          drawOptionScreen(switchCase);
           break;
         case 3:
           Console.WriteLine("Case 3");
+          Console.Clear();
+          drawOptionScreen(switchCase);
           break;
         default:
           Console.WriteLine("Sorry, deze optie bestaat niet! Probeer het opnieuw.\n\n");
@@ -49,24 +55,36 @@ namespace Kaleidoscope
       }
     }
 
-    static void drawScreen()
+    static void drawStartScreen()
     {
-      Console.WriteLine("============================================================");
-      Console.WriteLine(@" _  __     _      _     _                                  ");
-      Console.WriteLine(@"| |/ /    | |    (_)   | |                                 ");
-      Console.WriteLine(@"| ' / __ _| | ___ _  __| | ___  ___  ___ ___  _ __   ___   ");
-      Console.WriteLine(@"|  < / _` | |/ _ \ |/ _` |/ _ \/ __|/ __/ _ \| '_ \ / _ \  ");
-      Console.WriteLine(@"| . \ (_| | |  __/ | (_| | (_) \__ \ (_| (_) | |_) |  __/  ");
-      Console.WriteLine(@"|_|\_\__,_|_|\___|_|\__,_|\___/|___/\___\___/| .__/ \___|  ");
-      Console.WriteLine(@"                                             | |           ");
-      Console.WriteLine(@"                                             |_|           ");
-      Console.WriteLine("============================================================");
-      Console.WriteLine(" ");
-      Console.WriteLine(" ");
-      Console.WriteLine(" ");
+      drawLogo();
       Console.WriteLine("1) Derp\n" +
                         "2) Dorp\n" +
                         "3) Darp");
+    }
+
+    static void drawLogo() 
+    {
+      Console.WriteLine("==================================================================");
+      Console.WriteLine(@"||   _  __     _      _     _                                   ||");
+      Console.WriteLine(@"||  | |/ /    | |    (_)   | |                                  ||");
+      Console.WriteLine(@"||  | ' / __ _| | ___ _  __| | ___  ___  ___ ___  _ __   ___    ||");
+      Console.WriteLine(@"||  |  < / _` | |/ _ \ |/ _` |/ _ \/ __|/ __/ _ \| '_ \ / _ \   ||");
+      Console.WriteLine(@"||  | . \ (_| | |  __/ | (_| | (_) \__ \ (_| (_) | |_) |  __/   ||");
+      Console.WriteLine(@"||  |_|\_\__,_|_|\___|_|\__,_|\___/|___/\___\___/| .__/ \___|   ||");
+      Console.WriteLine(@"||                                               | |            ||");
+      Console.WriteLine(@"||                                               |_|            ||");
+      Console.WriteLine("==================================================================");
+      Console.WriteLine(" ");
+      Console.WriteLine(" ");
+      Console.WriteLine(" ");
+    }
+
+    static void drawOptionScreen(int screenIndex) 
+    {
+      drawLogo();
+      Console.WriteLine($"Welcome to screen {screenIndex}!");
+      Console.ReadLine();
     }
 
     static void writeToJson()
